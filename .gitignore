@@ -1,0 +1,2 @@
+gpg_keys/*
+!gpg_keys/.gitkeep

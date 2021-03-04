@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Symmetric encryption
+
 # Clear name
 if [ -z "$2" ]; then
     echo "Encrypting $1 as $1.tar.gz.gpg"
