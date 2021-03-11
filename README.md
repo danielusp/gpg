@@ -8,6 +8,14 @@ The *gpg_keys* folder is your secure key home
 
 When you generate a new GPG or import a previous GPG key this is the place where to put it. Name your GPG file as *backupkeys.pgp*
 
+## Assistant
+
+For an easyest use o GPG run GPG Assistant
+
+```bash
+make assistant
+```
+
 ## Build and run 
 
 ```bash
@@ -38,7 +46,7 @@ Generates GPG public and private keys
 make genkey
 ```
 
-## Asymmetric encription and decription
+## Asymmetric encryption and decryption
 
 ```bash
 docker exec -it gpg-running gpg --encrypt --recipient soueu@soueu teste.txt

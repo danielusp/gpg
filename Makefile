@@ -1,3 +1,5 @@
+assistant:
+	./opt.sh
 run:
 	./run.sh
 
