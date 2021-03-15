@@ -17,4 +17,7 @@ tar -cf "$fname.tar.gz" $1
 # Encrypts with password
 gpg -c --cipher-algo AES256 "$fname.tar.gz"
 
+# Removes .tar.gz
+rm "$fname.tar.gz"
+
 echo "Done"

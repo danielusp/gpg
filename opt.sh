@@ -39,11 +39,13 @@ do
             break
             ;;
         "Symmetric encryption")
-            echo "TODO"
+            read -p 'Select file or folder: ' src
+            docker exec -it gpg-running bash /output/scripts/encrypts.sh $src
             break
             ;;
         "Symmetric decryption")
-            echo "TODO"
+            read -p 'Select a GPG file: ' src
+            docker exec -it gpg-running bash /output/scripts/decrypts.sh $src
             break
             ;;
         "Asymmetric encryption")
