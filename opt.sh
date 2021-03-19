@@ -17,7 +17,7 @@ if [[ !($(docker ps --filter name=gpg-running -q)) ]]; then
 fi
 
 PS3="GPG - Please enter your choice: "
-options=("Start GPG" "GPG version" "Import a public key" "Import a public/private backup" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Enter inside GPG container" "Stop GPG" "Quit")
+options=("Start GPG" "GPG version" "Import a public key" "Import a public/private backup" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Enter inside GPG container" "Export GPG public key from a public/private key" "Stop GPG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -72,6 +72,12 @@ do
             ;;
         "Enter inside GPG container")
             docker exec -it gpg-running /bin/bash
+            break
+            ;;
+        "Export GPG public key from a public/private key")
+            read -p 'Select a public/private key (type the e-mail): ' pkemail
+            read -p 'Select an output file name: ' outputfile
+            docker exec -it gpg-running gpg --output gpg_keys/$outputfile.pen --armor --export $pkemail
             break
             ;;
         "Stop GPG")
