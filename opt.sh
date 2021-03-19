@@ -9,7 +9,7 @@
 if [[ !($(docker ps --filter name=gpg-running -q)) ]]; then
     echo "=================[ WARNING ]======================"
     echo ""
-    echo "  GPG is not running on your machine"
+    echo "  GPG is not running in your machine"
     echo "  Select option 1 to start GPG"
     echo ""
     echo "=================================================="
@@ -17,7 +17,7 @@ if [[ !($(docker ps --filter name=gpg-running -q)) ]]; then
 fi
 
 PS3="GPG - Please enter your choice: "
-options=("Start GPG" "GPG version" "Import a public key" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Stop GPG" "Quit")
+options=("Start GPG" "GPG version" "Import a public key" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Enter inside GPG container" "Stop GPG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -62,6 +62,10 @@ do
             ;;
         "Generates a Public/Private key")
             echo "TODO"
+            break
+            ;;
+        "Enter inside GPG container")
+            docker exec -it gpg-running /bin/bash
             break
             ;;
         "Stop GPG")
