@@ -22,7 +22,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Start GPG")
-            ./run.sh
+            ./scripts/run.sh
             break
             ;;
         "GPG version")
@@ -61,7 +61,8 @@ do
             break
             ;;
         "Generates a Public/Private key")
-            echo "TODO"
+            read -p 'Select a name for GPG pub/priv file: ' gpgbackupname
+            ./scripts/genkey.sh $gpgbackupname
             break
             ;;
         "Enter inside GPG container")

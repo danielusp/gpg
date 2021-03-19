@@ -16,11 +16,6 @@ For an easyest use o GPG run GPG Assistant
 make assistant
 ```
 
-## Build and run 
-
-```bash
-make run
-```
 ## Symmetric encryption
 
 Encrypts with a simple password
@@ -28,57 +23,31 @@ Encrypts with a simple password
 **OBS: AES256 cipher**
 ### Encrypt a file or a folder
 
-```bash
-./e.sh [file | folder] [filename]
-```
+Option 5
 
 ### Decrypt a file
 
-```bash
-./d.sh [file].gpg
-```
+Option 6
 
 ### Key generation
 
-Generates GPG public and private keys
+Generates GPG public and private keys. Backup file into *gpg_keys* folder
 
-```bash
-make genkey
-```
+Option 9
 
-## Asymmetric encryption and decryption
+## Asymmetric encryption
 
-```bash
-docker exec -it gpg-running gpg --encrypt --recipient soueu@soueu teste.txt
+Options 7
 
-docker exec -it gpg-running gpg --output teste-desc.txt --decrypt teste.txt.gpg
-```
+*Obs: Need to install a public key*
 
-## Export public key
+## Asymmetric decryption
 
-```bash
-docker exec -it gpg-running gpg --export --armor --output key2.pen
-```
+Options 8
 
-## Import public key
-
-```bash
-docker exec -it gpg-running gpg --import key.pen
-```
+*Obs: Need your private key*
 
 ## Others
-
-### Start container and keep it running
-
-docker run -d -it --rm --name gpg-running -v ${PWD}:/output gpg /bin/bash
-
-### Run a GPG command into container
-
-docker exec -it gpg-running gpg --version
-
-### Enter inside running container
-
-docker exec -it gpg-running /bin/bash
 
 ### Show public key
 
