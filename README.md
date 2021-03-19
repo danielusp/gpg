@@ -23,27 +23,27 @@ Encrypts with a simple password
 **OBS: AES256 cipher**
 ### Encrypt a file or a folder
 
-Option 5
+Option 6
 
 ### Decrypt a file
 
-Option 6
+Option 7
 
 ### Key generation
 
 Generates GPG public and private keys. Backup file into *gpg_keys* folder
 
-Option 9
+Option 10
 
 ## Asymmetric encryption
 
-Options 7
+Options 8
 
 *Obs: Need to install a public key*
 
 ## Asymmetric decryption
 
-Options 8
+Options 9
 
 *Obs: Need your private key*
 

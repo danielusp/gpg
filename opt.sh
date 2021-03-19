@@ -17,7 +17,7 @@ if [[ !($(docker ps --filter name=gpg-running -q)) ]]; then
 fi
 
 PS3="GPG - Please enter your choice: "
-options=("Start GPG" "GPG version" "Import a public key" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Enter inside GPG container" "Stop GPG" "Quit")
+options=("Start GPG" "GPG version" "Import a public key" "Import a public/private backup" "List keys" "Symmetric encryption" "Symmetric decryption" "Asymmetric encryption" "Asymmetric decryption" "Generates a Public/Private key" "Enter inside GPG container" "Stop GPG" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -30,8 +30,13 @@ do
             break
             ;;
         "Import a public key")
-            read -p 'Select the public key: ' pubkey
+            read -p 'Select the public key file: ' pubkey
             docker exec -it gpg-running gpg --import $pubkey
+            break
+            ;;
+        "Import a public/private backup")
+            read -p 'Select the backup file: ' bkfile
+            docker exec -it gpg-running gpg --allow-secret-key-import --import $bkfile
             break
             ;;
         "List keys")
