@@ -37,28 +37,13 @@ Option 10
 
 ## Asymmetric encryption
 
-Options 8
+Option 8
 
 *Obs: Need to install a public key*
 
 ## Asymmetric decryption
 
-Options 9
+Option 9
 
 *Obs: Need your private key*
 
-## Others
-
-### Show public key
-
-gpg --export --armor
-
-### Backup
-
-gpg --output /output/backupkeys.pgp --armor --export-secret-keys --export-options export-backup
-
-### Restore
-
-gpg --import /output/backupkeys.pgp
-
-docker exec -it gpg-running gpg --import backupkeys.pgp
