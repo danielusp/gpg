@@ -66,7 +66,8 @@ do
             break
             ;;
         "Generates a Public/Private key")
-            read -p 'Select a name for GPG pub/priv file: ' gpgbackupname
+            read -p 'Select a name for GPG pub/priv file [backupkeys]: ' gpgbackupname
+            gpgbackupname=${gpgbackupname:-backupkeys}
             ./scripts/genkey.sh $gpgbackupname
             break
             ;;
