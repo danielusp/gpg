@@ -31,12 +31,12 @@ do
             ;;
         "Import a public key")
             read -p 'Select the public key file: ' pubkey
-            docker exec -it gpg-running gpg --import $pubkey
+            docker exec -it gpg-running gpg --import gpg_keys/public/$pubkey
             break
             ;;
         "Import a public/private backup")
             read -p 'Select the backup file: ' bkfile
-            docker exec -it gpg-running gpg --allow-secret-key-import --import $bkfile
+            docker exec -it gpg-running gpg --allow-secret-key-import --import gpg_keys/backup/$bkfile
             break
             ;;
         "List keys")
@@ -77,7 +77,7 @@ do
         "Export GPG public key from a public/private key")
             read -p 'Select a public/private key (type the e-mail): ' pkemail
             read -p 'Select an output file name: ' outputfile
-            docker exec -it gpg-running gpg --output gpg_keys/$outputfile.pen --armor --export $pkemail
+            docker exec -it gpg-running gpg --output gpg_keys/public/$outputfile.pen --armor --export $pkemail
             break
             ;;
         "Stop GPG")
